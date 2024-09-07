@@ -60,9 +60,10 @@ label {
     font-weight: bold;
     font-size: 20px;
     display: flex;
-    width: 500px ;
+    width:600px ;
     flex-direction: column;
     text-align: center;
+    align-items: center;
     border: 2px solid black;
     margin: 0 auto;
     border-radius: 8px;
