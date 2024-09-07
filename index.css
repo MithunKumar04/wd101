@@ -9,9 +9,10 @@ body{
 
 .centered-box {
     font-weight: bold;
-    font-size: 30px;
-    width: 600px;
-    padding: 50px;
+    font-size: 20px;
+    width: 500px;
+    height: 550px;
+    padding: 20px;
     border: 2px solid black;
     margin: 0 auto;
     border-radius: 8px;
@@ -57,9 +58,9 @@ label {
 }
 .user-entries{
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
     display: flex;
-    width: 600px ;
+    width: 500px ;
     flex-direction: column;
     text-align: center;
     border: 2px solid black;
