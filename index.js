@@ -1,30 +1,24 @@
 let formStore = document.getElementById("form-Store");
 uservals = JSON.parse(localStorage.getItem("user-vals")) || [];
-localStorage.clear();
+
 function displayvals() {
   let retrivevals = JSON.parse(localStorage.getItem("user-vals"));
   if (retrivevals == []) {
     return;
   }
-  let tableentries = retrivevals
-    .map((retrivevals) => {
-      const namecell = `<td class='border px-4 py-2'>${retrivevals.name}</td>`;
-      const emailcell = `<td class='border px-4 py-2'>${retrivevals.email}</td>`;
-      const passcell = `<td class='border px-4 py-2'>${retrivevals.password}</td>`;
-      const datecell = `<td class='border px-4 py-2'>${retrivevals.date}</td>`;
-      const acceptancecell = `<td class='border px-4 py-2'>${
-        retrivevals.acceptance ? "true" : "false"
-      }</td>`;
-      const row = `<tr>${namecell} ${emailcell} ${passcell} ${datecell} ${acceptancecell}</tr>`;
-      return row;
-    })
-    .join("\n");
-
-  const table = `</tr>${tableentries} </tr>`;
+  let tableentries = retrivevals.map((retrivevals) => `
+      <tr>
+          <td class="border px-4 py-2">${retrivevals.name}</td>
+          <td class="border px-4 py-2">${retrivevals.email}</td>
+          <td class="border px-4 py-2">${retrivevals.password}</td>
+          <td class="border px-4 py-2">${retrivevals.date}</td>
+          <td class="border px-4 py-2">${retrivevals.acceptance ? 'true' : 'false'}</td>
+      </tr>
+  `).join("");
 
   let details = document.getElementById("user-vals");
-  details.innerHTML = table;
-}
+  details.innerHTML = tableentries;
+};
 function saveForm(event) {
   event.preventDefault();
   const name = document.getElementById("name").value;
@@ -42,7 +36,7 @@ function saveForm(event) {
   uservals.push(vals);
   localStorage.setItem("user-vals", JSON.stringify(uservals));
   displayvals();
-}
+};
 
 formStore.addEventListener("submit", saveForm);
 displayvals();
