@@ -1,72 +1,56 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
 </head>
 <body>
-    <div class="centered-box">
-        <form action="" id="form-Store">
-            <h1 id="reghead">Registration Form</h1>
-            
-            <label for="name">Enter Name</label>
-            <input required type="text" id="name" placeholder="Your name">
-            
-            
-            <label for="mail">Enter Email ID</label>
-            <input required type="email" id="mail" placeholder="example@mail.com">
-            
-            
-            <label for="pass">Enter Password</label>
-            <input required type="password" id="pass" placeholder="Password">
-            
-            
-            <label for="date">Enter DOB</label>
-            <input required type="date" id="date">
-            
-            
-            <label for="check">Accept Terms and Conditions</label>
-            <input required type="checkbox" id="check">
-            
-            
-            <button type="submit" id="submit">Submit</button>
-        </form>
-    </div>
-    <br>
-    <div class="user-entries">
-        <h1>User Entries</h1>
-        <div class="px-8 py-4">
-            <table class=table-auto w-full>
-                <thead><tr>
-                <th class="border px-4 ">Name</th>
-                <th class="border px-4 ">Email</th>
-                <th class="border px-4 ">Password</th>
-                <th class="border px-4 ">Dob</th>
-                <th class="border px-4 ">Accepted terms?</th> 
-                </tr>  
-                <tbody id="user-vals">
-
-                </tbody> 
+    <div class="bg-gray-200 flex items-center justify-center h-screen">
+        <div class="w-full max-w-2xl p-8 bg-white rounded-lg shadow-md">
+            <!-- Registration Form Section -->
+            <h2 class="text-2xl text-center font-semibold mb-6">Registration Form</h2>
+            <form id="user-form" aria-labelledby="registration-form">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-600">Name</label>
+                    <input type="text" id="name" name="name" class="mt-1 p-2 w-full border rounded-md" placeholder="Enter your full name" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
+                    <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
+                    <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded-md" placeholder="Enter your password" required>
+                </div>
+                <div class="mb-4">
+                    <label for="dob" class="block text-sm font-medium text-gray-600">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" class="mt-1 p-2 w-full border rounded-md" placeholder="dd/mm/yyyy" required>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input type="checkbox" id="acceptTerms" name="acceptTerms" class="mr-2" required>
+                    <label for="acceptTerms" class="text-sm font-medium text-gray-600">Accept Terms & Conditions</label>
+                </div>
+                <!-- Modify button to match screenshot's green button -->
+                <button type="submit" class="bg-green-500 text-white p-3 w-full rounded-md mt-3">Submit</button>
+            </form>
+            <h2 class="text-2xl text-center font-semibold mt-10 mb-6">Entries</h2>
+            <table id="entriesTable" class="table-auto w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr>
+                        <th class="border px-4 py-2">Name</th>
+                        <th class="border px-4 py-2">Email</th>
+                        <th class="border px-4 py-2">Password</th>
+                        <th class="border px-4 py-2">DOB</th>
+                        <th class="border px-4 py-2">Accepted Terms?</th>
+                    </tr>
+                </thead>
+                <tbody id="user-entries">
+                </tbody>
             </table>
         </div>
-        
     </div>
+    <script src="./index.js"></script>
 </body>
-<script>
-    function setAgeRange() {
-    const today = new Date();
-    const minAge = 18;
-    const maxAge = 55;
-    const minDate = new Date(today.getFullYear() - maxAge, today.getMonth(), today.getDate());
-    const maxDate = new Date(today.getFullYear() - minAge, today.getMonth(), today.getDate());
-    const minDateString = minDate.toISOString().split('T')[0];
-    const maxDateString = maxDate.toISOString().split('T')[0];
-    const dobInput = document.getElementById('date');
-    dobInput.setAttribute('min', minDateString);
-    dobInput.setAttribute('max', maxDateString);
-}
-window.onload = setAgeRange;
-</script>
-<script src="index.js"></script>
-
 </html>
